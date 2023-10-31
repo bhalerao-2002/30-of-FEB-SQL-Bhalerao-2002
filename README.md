@@ -1,2 +1,3 @@
-# 30-of-November-SQL---Bhalerao-2002
-Welcome you Back, Now I am trying to solve and Learn SQL from scratch. I will learn one thing in a day and post editorial here. Thank you to boost my motivation please Like my Repo ⭐
+# SQL Learning Journey - November 30, 2023
+
+Welcome back! I'm embarking on a journey to master SQL from scratch. Each day, I'll tackle a new SQL concept and share my insights right here. Your support and motivation mean the world to me. If you find this project interesting, please consider giving it a star ⭐️. Let's learn and grow together! 💻📚🚀 #SQL #LearningFromScratch
