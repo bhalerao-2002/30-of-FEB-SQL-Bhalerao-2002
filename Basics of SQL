@@ -37,4 +37,21 @@ While altering the table we can either keep the newly added column blank or we c
 
 ### Note: SELECT * FROM table_name  To print all from table.
 
-4. 
+4. UPDATE : To edit a row or multiple rows in a table.
+       UPDATE student
+       SET Age = 6
+       WHERE student_id = 23;
+This query to Set the Age as 6, for the student with student_id - 23 to the existing table student.
+The 'WHERE' condition can be applied for any column. We will learn more about 'WHERE' in the next module
+
+5. DELETE FROM : To remove one or multiple rows from a table.
+       You can use the statement when you want to delete existing records.
+       Below is the query to delete all rows in the student table with student_id - 08 (table added below for reference).
+       DELETE FROM  student
+       WHERE student_id = 08;
+
+
+
+
+
+♻️ Still in Progress...
