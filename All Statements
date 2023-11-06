@@ -197,6 +197,8 @@ Note: Not all database systems support the SELECT TOP clause. MySQL supports the
               FROM table_name
               WHERE condition; 
 
+Day 5
+
 # COUNT() Function:  returns the number of rows that matches a specified criterion.
 
 - Syntax
@@ -204,9 +206,148 @@ Note: Not all database systems support the SELECT TOP clause. MySQL supports the
               FROM table_name
               WHERE condition;
 
+# SUM() Function : returns the total sum of a numeric column.
+
+- Syntax
+              SELECT SUM(column_name)
+              FROM table_name
+              WHERE condition;
+
+- Add a Where Clause to specify conditions:
+       Example
+       Return the number of orders made for the product with ProductID 11:
+
+              SELECT SUM(Quantity)
+              FROM OrderDetails
+              WHERE ProdictId = 11;
+- Use an Alias : Give the summarized column a name by using the AS keyword.
+       Example
+       Name the column "total":
+
+              SELECT SUM(Quantity) AS total
+              FROM OrderDetails;
+
+- SUM() With an Expression : The parameter inside the SUM() function can also be an expression.
+If we assume that each product in the OrderDetails column costs 10 dollars, we can find the total earnings in dollars by multiply each quantity with 10:
+       Example
+       Use an expression inside the SUM() parenthesis:
+
+              SELECT SUM(Quantity * 10)
+              FROM OrderDetails;
+
+# AVG() Function : returns the average value of a numeric column.
+Note: NULL values are ignored.
+
+Syntax
+              SELECT AVG(column_name)
+              FROM table_name
+              WHERE condition;
+
+- Add a Where Clause
+Return the average price of products in category 1:
+              SELECT AVG(Price)
+              FROM Products
+              WHERE CategoryID = 1;
+- Use an Alias: Give the AVG column a name by using the AS keyword.
+
+Example
+Name the column "average price":
+              SELECT AVG(Price) AS [average price]
+              FROM Products;
+
+- Higher Than Average
+To list all records with a higher price than average, we can use the AVG() function in a sub query:
+Example
+Return all products with a higher price than the average price:
+
+              SELECT * FROM Products
+              WHERE price > (SELECT AVG(price) FROM Products);
+
+# LIKE Operator: is used in a WHERE clause to search for a specified pattern in a column.
+
+- There are two wildcards often used in conjunction with the LIKE operator:
+        - The percent sign % represents zero, one, or multiple characters
+        - The underscore sign _ represents one, single character
+
+- Syntax
+              SELECT column1, column2, ...
+              FROM table_name
+              WHERE columnn LIKE pattern;
+
++ The _ wildcard represents a single character.
+       - It can be any character or number, but each _ represents one, and only one, character.
+       - Example
+          Return all customers from a city that starts with 'L' followed by one wildcard character, then 'nd' and then two wildcard characters:
+
+                     SELECT * FROM Customers
+                     WHERE city LIKE 'L_nd__';
+                     
++ The % wildcard represents any number of characters, even zero characters.
+
+       - Example
+          Return all customers from a city that contains the letter 'L':
+
+                     SELECT * FROM Customers
+                     WHERE city LIKE '%L%';
++ Starts With
+       - To return records that starts with a specific letter or phrase, add the % at the end of the letter or phrase.
+       - Example
+         Return all customers that starts with 'La':
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE 'La%';
+       - Tip: You can also combine any number of conditions using AND or OR operators.
+
+              - Example
+                     Return all customers that starts with 'a' or starts with 'b':
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE 'a%' OR CustomerName LIKE 'b%';
+
++ Ends With
+       - To return records that ends with a specific letter or phrase, add the % at the beginning of the letter or phrase.
+       - Example
+              Return all customers that ends with 'a':
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE '%a';
+       - Tip: You can also combine "starts with" and "ends with":
+              -Example
+                 Return all customers that starts with "b" and ends with "s":
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE 'b%s';
+
++ Contains
+       - To return records that contains a specific letter or phrase, add the % both before and after the letter or phrase.
+       - Example
+          Return all customers that contains the phrase 'or'
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE '%or%';
+
++ Combine Wildcards
+       - Any wildcard, like % and _ , can be used in combination with other wildcards.
+       - Example
+          Return all customers that starts with "a" and are at least 3 characters in length:
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE 'a__%';
+       - Example
+         Return all customers that have "r" in the second position:
+
+                     SELECT * FROM Customers
+                     WHERE CustomerName LIKE '_r%';
+
++ Without Wildcard
+       - If no wildcard is specified, the phrase has to have an exact match to return a result.
+       - Example
+          Return all customers from Spain:
+
+                     SELECT * FROM Customers
+                     WHERE Country LIKE 'Spain';
+
 # 
-
-
 
 
 
