@@ -1,0 +1,28 @@
+Problem Link : https://www.hackerrank.com/challenges/weather-observation-station-5/problem?isFullScreen=true
+
+Solution : 
+
+SELECT CITY, LENGTH(CITY) FROM STATION
+ORDER BY LENGTH(CITY) ASC, CITY ASC LIMIT 1;
+SELECT CITY, LENGTH(CITY) FROM STATION
+ORDER BY LENGTH(CITY) DESC , CITY ASC LIMIT 1;
+
+Destructuring Solution : 
+
+SELECT CITY, LENGTH(CITY) FROM STATION
+//by this selection city and length of that city(character in name of city)
+ORDER BY LENGTH(CITY) ASC
+//by this we will arrange our selection by ascending order of the length of city
+, CITY ASC 
+//Also if there are more than one city with min length we have to return that city which comes first alphabeticaly, thats why we are maintaining the order by in ascending order of city(name)
+LIMIT 1;
+//by this only one(smallest) will be choosen
+
+SELECT CITY, LENGTH(CITY) FROM STATION
+//by this selection city and length of that city(character in name of city)
+ORDER BY LENGTH(CITY) DESC 
+//by this we will arrange our selection by descending order of the length of city
+, CITY ASC 
+//Also if there are more than one city with min length we have to return that city which comes first alphabeticaly, thats why we are maintaining the order by in ascending order of city(name)
+LIMIT 1;
+//by this only one(smallest) will be choosen
