@@ -1,0 +1,13 @@
+Problem Link : https://www.hackerrank.com/challenges/weather-observation-station-6/problem?isFullScreen=true
+
+Solution : 
+
+SELECT DISTINCT CITY FROM STATION
+WHERE LEFT(CITY, 1) IN ('A', 'E', 'I', 'O', 'U');
+
+Desturcturing Solution : 
+
+SELECT DISTINCT CITY FROM STATION
+WHERE LEFT(CITY, 1)
+//by this left 1st character of city will be checked in following set.
+IN ('A', 'E', 'I', 'O', 'U');
