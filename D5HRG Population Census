@@ -1,0 +1,16 @@
+Problem Link : https://www.hackerrank.com/challenges/asian-population/problem?isFullScreen=true
+
+Solution :
+
+SELECT SUM(CITY.POPULATION) FROM CITY INNER JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE 
+WHERE COUNTRY.CONTINENT = "Asia";
+
+Destructuring Solution : 
+
+SELECT SUM(CITY.POPULATION)
+// We have to return the sum of population so we had used function SUM
+FROM CITY INNER JOIN COUNTRY
+//we want data from both tables so we are using inner join
+ON CITY.COUNTRYCODE = COUNTRY.CODE
+//on (condition) where our tables are attached
+WHERE COUNTRY.CONTINENT = "Asia";
